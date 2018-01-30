@@ -1,4 +1,4 @@
-package main.java.com.andy.task1_oop.main;
+package main.java.com.andy.task1_oop;
 
 import main.java.com.andy.task1_oop.model.search.Criteria;
 import main.java.com.andy.task1_oop.model.search.SearchCriteria;
