@@ -2,9 +2,8 @@ package main.java.com.andy.task1_oop.dao;
 
 import main.java.com.andy.task1_oop.model.search.SearchCriteria;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.io.IOException;
 
 public interface ApplianceDAO {
-    ArrayList<String> find(SearchCriteria searchCriteria) throws Exception;
+    String find(SearchCriteria searchCriteria) throws IOException;
 }

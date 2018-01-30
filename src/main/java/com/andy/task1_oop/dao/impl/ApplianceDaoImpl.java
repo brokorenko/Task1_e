@@ -5,38 +5,46 @@ import main.java.com.andy.task1_oop.dao.ApplianceSourceComparator;
 import main.java.com.andy.task1_oop.dao.file.ResourceReader;
 import main.java.com.andy.task1_oop.model.search.SearchCriteria;
 
-import java.util.*;
-
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 //Если имя продукта не указано???
 
 public class ApplianceDaoImpl implements ApplianceDAO {
-    @Override
-    public ArrayList<String> find(SearchCriteria searchCriteria) throws Exception {
 
-        String checkLine;
+    @Override
+    public String find(SearchCriteria searchCriteria) throws IOException {
+
+        String appliance = null;
         int entryCount;
-        ArrayList<String> appliances = new ArrayList<>();
         Iterator<Map.Entry> criteriaIterator;
 
-        ResourceReader rs = ResourceReader.getResourceReaderInstance();
-        ApplianceSourceComparator applianceSourceComparator = new ApplianceSourceComparator();
+        final ResourceReader rs = ResourceReader.getResourceReaderInstance();
+        final ApplianceSourceComparator applianceSourceComparator = new ApplianceSourceComparator();
 
         Set<HashMap.Entry> set = searchCriteria.getCriteria().entrySet();
+
         try {
             while (rs.haveNextLine()){
+                String checkLine;
                 entryCount = 0;
                 checkLine = rs.readLine();
                 criteriaIterator = set.iterator();
+
                 if (checkLine.contains(searchCriteria.getProductName())){
+
                     while (criteriaIterator.hasNext()){
                         Map.Entry entryCheck= criteriaIterator.next();
-                        //keyValue = String.valueOf(iterator.next()); //Not toString!!
+
                         if (applianceSourceComparator.match(entryCheck.getKey(), entryCheck.getValue(), checkLine)){
                             entryCount++;
                         }
+
                         if (set.size() == entryCount){
-                            appliances.add(checkLine);
+                            appliance = checkLine;
                             break;
                         }
                     }
@@ -45,6 +53,6 @@ public class ApplianceDaoImpl implements ApplianceDAO {
         } finally {
             rs.close();
         }
-        return appliances;
+        return appliance;
     }
 }

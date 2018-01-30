@@ -1,4 +1,6 @@
-package main.java.com.andy.task1_oop.model;
+package main.java.com.andy.task1_oop.model.entity;
+
+import main.java.com.andy.task1_oop.model.Appliance;
 
 public class VacuumCleaner implements Appliance {
     private int powerConsumption;

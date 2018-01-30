@@ -2,6 +2,7 @@ package main.java.com.andy.task1_oop.dao.file;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ResourceReader implements AutoCloseable {
@@ -26,8 +27,7 @@ public class ResourceReader implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
-        scanner.close();
+    public void close() throws IOException {
         fileReader.close();
     }
 

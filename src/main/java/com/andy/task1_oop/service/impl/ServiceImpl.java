@@ -6,11 +6,11 @@ import main.java.com.andy.task1_oop.model.search.SearchCriteria;
 import main.java.com.andy.task1_oop.service.Service;
 import main.java.com.andy.task1_oop.service.validation.Validator;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
 public class ServiceImpl implements Service {
     @Override
-    public ArrayList<String> find(SearchCriteria searchCriteria) throws Exception {
+    public String find(SearchCriteria searchCriteria) throws IOException {
         Validator validator = new Validator();
         validator.checkCriteria(searchCriteria);
 
