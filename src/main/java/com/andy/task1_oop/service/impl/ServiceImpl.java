@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ServiceImpl implements Service {
     @Override
     public String find(SearchCriteria searchCriteria) throws IOException {
-        Validator validator = new Validator();
+        Validator validator = new Validator();// зачем тебе каждый раз новый валидатор?
         validator.checkCriteria(searchCriteria);
 
         DAOFactory daoFactory = DAOFactory.getInstance();
