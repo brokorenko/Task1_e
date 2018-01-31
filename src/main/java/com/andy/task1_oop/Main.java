@@ -1,4 +1,4 @@
-package main.java.com.andy.task1_oop;
+package main.java.com.andy.task1_oop;// зачем этот класс лежит в корне всего проекта?
 
 import main.java.com.andy.task1_oop.model.search.Criteria;
 import main.java.com.andy.task1_oop.model.search.SearchCriteria;

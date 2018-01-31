@@ -1,4 +1,4 @@
-package main.java.com.andy.task1_oop.model.search;
+package main.java.com.andy.task1_oop.model.search;// search - и что за поисковый код у тебя в пакете лежит? имена подбирай аккуратно
 
 import java.util.HashMap;
 import java.util.Map;

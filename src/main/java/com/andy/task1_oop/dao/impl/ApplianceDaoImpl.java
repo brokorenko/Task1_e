@@ -16,7 +16,7 @@ import java.util.Set;
 public class ApplianceDaoImpl implements ApplianceDAO {
 
     @Override
-    public String find(SearchCriteria searchCriteria) throws IOException {
+    public String find(SearchCriteria searchCriteria) throws IOException {// зачем этот метод возвращает String? Я Appliance хочу найти, а не строку
 
         String appliance = null;
         int entryCount;
@@ -28,7 +28,7 @@ public class ApplianceDaoImpl implements ApplianceDAO {
         Set<HashMap.Entry> set = searchCriteria.getCriteria().entrySet();
 
         try {
-            while (rs.haveNextLine()){
+            while (rs.haveNextLine()){// длинновытай цикл, рефакторинга просит
                 String checkLine;
                 entryCount = 0;
                 checkLine = rs.readLine();

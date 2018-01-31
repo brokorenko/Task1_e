@@ -10,8 +10,11 @@ import java.io.IOException;
 
 public class ServiceImpl implements Service {
     @Override
-    public String find(SearchCriteria searchCriteria) throws IOException {
-        Validator validator = new Validator();
+    public String find(SearchCriteria searchCriteria) throws IOException {// опять String? я электротовары ищу, а не строки, ты должен был реализоать код, позволяющий создавать объекты иерархии, а не пытаться упростить задачу
+    // если вам каждется, что какой-то кодписать должго и сложно - то это вам кажетс, нужно сейсть и разобраться
+        // приставка в специальности 'инженер' и говорит, что вылжны сами уметь находить решения
+        // фабрика обуви тебе тоже может кусок кожи дать и сказать, что это те ботинки, что ты ыискал - ведь ей так проще
+        Validator validator = new Validator();// зачем тебе каждый раз новый валидатор?
         validator.checkCriteria(searchCriteria);
 
         DAOFactory daoFactory = DAOFactory.getInstance();
